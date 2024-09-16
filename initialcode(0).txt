@@ -1,0 +1,24 @@
+# add terraform aws provider 
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.64.0"
+    }
+  }
+}
+# configure aws terraform providers
+provider "aws" {
+    region     = "ap-south-1"
+    access_key = "**************"
+    secret_key = "**************"
+     
+}
+resource "aws_instance" "my_first_server" {
+    ami           = "ami-02b49a24cfb95941c"
+    instance_type = "t2.micro"
+
+    tags = {
+        name = "redhat"
+    }
+}
